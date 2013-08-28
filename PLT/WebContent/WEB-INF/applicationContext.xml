@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://www.directwebremoting.org/schema/spring-dwr http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd">
+
+	
+	<!-- GSK PROD -->
+	<bean id="gskprdContextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+		<property name="url" value="ldaps://172.16.198.121:636" />
+		<!--<property name="base" value="ou=PWP,dc=EDC,dc=EXT" />
+		-->
+		<property name="base"
+			value="OU=GLSMKP_USERS,OU=GLSMKP,OU=PWP,DC=EDC,DC=EXT" />
+		<property name="userDn" value="cn=GLSMKPAdmin,ou=PWP,dc=EDC,dc=EXT" />
+		<property name="password" value="GLS4dm1n" />
+	</bean>
+
+	<!-- GSK DEV -->
+	<bean id="gskdevContextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+		<property name="url" value="ldaps://172.16.198.121:636" />
+		<property name="base" value="ou=EDC_Development,dc=DEV-EDC,dc=EXT" />
+		<property name="userDn"
+			value="cn=PACEtest,ou=PACE,ou=EDC_Development,dc=DEV-EDC,dc=EXT" />
+		<property name="password" value="P4c3T3st" />
+	</bean>
+
+	<!-- MT DEV -->
+	<bean id="mtdevContextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+		<property name="url" value="ldaps://172.16.197.35:636" />
+		<property name="base"
+			value="OU=PWPDV_USERS,OU=PWPDV,OU=PWP,DC=DEV-EDC,DC=EXT" />
+		<property name="userDn" value="CN=PaceAdmin1,OU=PWP,DC=DEV-EDC,DC=EXT" />
+		<property name="password" value="P4c3User" />
+	</bean>
+
+	<!-- MT PROD -->
+	<bean id="mtprdContextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+		<property name="url" value="ldaps://172.16.198.121:636" />
+		<property name="base" value="OU=PWPP_USERS,OU=PWPP,OU=PWPMT,DC=EDC,DC=EXT" />
+		<property name="userDn" value="CN=PWPMTAdmin,OU=PWPMT,DC=EDC,DC=EXT" />
+		<property name="password" value="PWPMT4dm1n" />
+	</bean>
+
+	<!-- MT STG -->
+	<bean id="mtstgContextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+		<property name="url" value="ldaps://172.16.197.35:636" />
+		<property name="base"
+			value="OU=PWPS_USERS,OU=PWPS,OU=PWP,dc=DEV-EDC,dc=EXT" />
+		<property name="userDn" value="CN=PaceAdmin1,OU=PWP,DC=DEV-EDC,DC=EXT" />
+		<property name="password" value="P4c3User" />
+	</bean>
+
+	<bean id="gskprdLdapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+		<constructor-arg ref="gskprdContextSource" />
+	</bean>
+
+	<bean id="mtprdLdapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+		<constructor-arg ref="mtprdContextSource" />
+	</bean>
+
+	<bean id="mtdevLdapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+		<constructor-arg ref="mtdevContextSource" />
+	</bean>
+
+	<bean id="gskdevLdapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+		<constructor-arg ref="gskdevContextSource" />
+	</bean>
+
+	<bean id="mtstgLdapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+		<constructor-arg ref="mtstgContextSource" />
+	</bean>
+
+	<bean id="userDao" class="com.pxl.pwp.ldap.dao.UserDaoImpl">
+		<property name="listOfLdapTemplates">
+			<map>
+				<entry key="mtdevContextSource">
+					<ref bean="mtdevLdapTemplate" />
+				</entry>
+				<entry key="gskdevContextSource">
+					<ref bean="gskdevLdapTemplate" />
+				</entry>
+				<entry key="mtprdContextSource">
+					<ref bean="mtprdLdapTemplate" />
+				</entry>
+				<entry key="gskprdContextSource">
+					<ref bean="gskprdLdapTemplate" />
+				</entry>
+				<entry key="mtstgContextSource">
+					<ref bean="mtstgLdapTemplate" />
+				</entry>
+			</map>
+		</property>
+		<dwr:remote javascript="UserDtls">
+			<dwr:include method="findByMail" />
+			<dwr:include method="isUserExist" />
+		</dwr:remote>
+	</bean>
+
+</beans>

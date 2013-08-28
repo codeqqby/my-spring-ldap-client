@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<!-- LDAP server details -->
+
+	<security:authentication-manager alias="authenticationManager">
+		<security:authentication-provider
+			ref="ldapAuthProvider"></security:authentication-provider>
+	</security:authentication-manager>
+
+	<beans:bean id="ldapContextSource"
+		class="org.springframework.ldap.core.support.LdapContextSource">
+		<beans:property name="url" value="ldap://na.pxl.int:3268" />
+		<beans:property name="base" value="" />
+		<beans:property name="userDn"
+			value="CN=SubVersion\, SVN,OU=System-Accounts,OU=BOS,DC=na,DC=pxl,DC=int" />
+		<beans:property name="password" value="c2uzi$fwdc" />
+	</beans:bean>
+
+	<beans:bean id="ldapUserSearch"
+		class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch">
+		<beans:constructor-arg value="DC=pxl,DC=int" /> <!-- optional sub-tree here -->
+		<beans:constructor-arg
+			value="(&amp;(objectClass=person)(memberof=CN=\5c+PWP-SUPP,OU=NA Distribution Lists,DC=na,DC=pxl,DC=int)(sAMAccountName={0}))" />
+		<beans:constructor-arg ref="ldapContextSource" />
+	</beans:bean>
+
+	<beans:bean id="ldapAuthProvider"
+		class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider">
+		<beans:constructor-arg>
+			<beans:bean
+				class="org.springframework.security.ldap.authentication.BindAuthenticator">
+				<beans:constructor-arg ref="ldapContextSource" />
+
+				<!--
+					<beans:property name="userDnPatterns"> <beans:list>
+					<beans:value>ou=Users,ou=IT,ou=HYD,dc=eu</beans:value>
+					</beans:list> </beans:property>
+				-->
+				<beans:property name="userSearch" ref="ldapUserSearch" />
+			</beans:bean>
+		</beans:constructor-arg>
+	</beans:bean>
+
+	<security:http auto-config="true">
+
+		<!-- Restrict URLs based on role -->
+		<security:intercept-url pattern="/login*"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/logoutSuccess*"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+
+		<security:intercept-url pattern="/includes/**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/images/**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+
+		<security:intercept-url pattern="/**"
+			access="IS_AUTHENTICATED_FULLY" />
+
+		<security:session-management
+			invalid-session-url="/login.jsp"></security:session-management>
+
+		<!-- Login pages -->
+		<security:form-login login-page="/login.jsp"
+			default-target-url="/welcome.do" login-processing-url="/j_spring_security_check"
+			authentication-failure-url="/login.jsp?error=1" />
+
+		<!-- Logout pages -->
+		<security:logout logout-success-url="/login.jsp"
+			invalidate-session="true" delete-cookies="JSESSIONID" />
+
+
+	</security:http>
+
+</beans:beans>

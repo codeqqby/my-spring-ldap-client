@@ -1,0 +1,270 @@
+@CHARSET "ISO-8859-1";
+
+.MainBody {
+	width: 990px;
+	padding: 75px 0 44px 0;
+	font-size: 12px;
+	background: #FFFDFF;
+	height: auto;
+	margin: auto;
+}
+
+.body {
+	width: 600px;
+	padding: 15px 0 15px 0;
+	font-size: 12px;
+	background: #e5e6e7;
+	height: auto;
+	margin: auto;
+}
+
+.body1 {
+	width: 990px;
+	padding: 75px 0 44px 0;
+	font-size: 12px;
+	background: #FFFFFF;
+	height: auto;
+	margin: auto;
+}
+
+.body2 {
+	width: 900px;
+	padding: 15px 0 15px 0;
+	font-size: 12px;
+	background: #e5e6e7;
+	height: auto;
+	margin: auto;
+}
+
+.TableBigBoxForEnv {
+	BORDER-RIGHT: #db6700 1px solid;
+	BORDER-TOP: #db6700 1px solid;
+	BORDER-LEFT: #db6700 1px solid;
+	BORDER-BOTTOM: #db6700 1px solid;
+	TEXT-DECORATION: none;
+	background-position: center :                       4px;
+	background-color: #F0E68C;
+}
+
+.tbl_oddrow_center {
+	background-color: #E5ECFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	font-weight: normal;
+}
+
+.tbl_evenrow_center {
+	background-color: #dcdcdc;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	font-weight: normal;
+	text-align: left;
+}
+
+.form_txtbox {
+	font-family: Calibri, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #000000;
+	background-color: #EAEAEA;
+	width: 150px;
+	height: 16px;
+}
+
+.txtnormal {
+	LINE-HEIGHT: 20px;
+	font-family: Calibri, Helvetica, sans-serif;
+	font-size: 15px;
+	color: #000000;
+	TEXT-DECORATION: none;
+	visited: #000000
+}
+
+.txtnormal3 {
+	LINE-HEIGHT: 25px;
+	font-family: Calibri, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #000000;
+	TEXT-DECORATION: none;
+	visited: #000000;
+}
+
+.header {
+	LINE-HEIGHT: 14px;
+	font-family: Calibri, Helvetica, sans-serif;
+	font-size: 24px;
+	color: #000000;
+	background-color: rgb();
+	FONT-WEIGHT: bold;
+	TEXT-DECORATION: none;
+	visited: #000000
+}
+
+.button {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	BACKGROUND: #2C82D7;
+	CURSOR: hand;
+	COLOR: #ffffff;
+	FONT-FAMILY: Calibri, Helvetica, sans-serif;
+	HEIGHT: 20px;
+}
+
+.error {
+	font-family: Calibri, Helvetica, sans-serif;
+	color: #FF0000;
+	FONT-SIZE: 12px;
+	background-color: #FFFFFF;
+	padding: 8px;
+	margin: 16px;
+}
+
+.error_1 {
+	font-family: Calibri, Helvetica, sans-serif;
+	color: #FF0000;
+	FONT-SIZE: 12px;
+	background-color: none;
+	padding: 8px;
+	margin: 16px;
+}
+
+.invalidcredentials {
+	font-family: Calibri, Helvetica, sans-serif;
+	color: #FF0000;
+	FONT-SIZE: 13px;
+	background-color: #E6E6FA;
+}
+
+.bg_top {
+	background-image: url(../img/top.gif);
+	height: 17px;
+	font-weight: bold;
+	font-family: Calibri, Helvetica, sans-serif;
+	color: #0C2577;;
+	font-size: 12px;
+	background-color: #3366FF;
+}
+
+.bg_bottom {
+	background-image: url(../img/top_bg.gif);
+	height: 20px;
+	font-weight: lighter;
+	font-family: Calibri, Helvetica, sans-serif;
+	color: #0C2577;;
+	font-size: 12px;
+	background-color: #3366FF;
+}
+
+.login_txtbox {
+	font-family: Calibri, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	width: 150px;
+	height: 19px;
+	BORDER: 2px;
+}
+
+.title {
+	font-size: 18px;
+	font-weight: normal;
+	FONT-FAMILY: Verdana, Calibri, Helvetica, sans-serif;
+	color: royalblue;
+	background-color: transparent;
+}
+
+.signinhead {
+	PADDING-LEFT: 6px;
+	FONT-FAMILY: Calibri, Helvetica, sans-serif;
+	COLOR: #000000;
+	FONT-SIZE: 20px;
+	FONT-WEIGHT: bold;
+	TEXT-DECORATION: none;
+	visited: #000000;
+}
+
+.urllink {
+	LINE-HEIGHT: 14px;
+	FONT-FAMILY: Calibri, Helvetica, sans-serif;
+	COLOR: #000000;
+	FONT-SIZE: 14px
+}
+
+.boldurllink {
+	LINE-HEIGHT: 14px;
+	FONT-FAMILY: Calibri, Helvetica, sans-serif;
+	COLOR: #000000;
+	FONT-SIZE: 14px;
+	FONT-WEIGHT: bold;
+	TEXT-DECORATION: underline;
+	visited: #000000
+}
+
+.TableBigBox {
+	border: 1px solid #393b43;
+	padding: 6px 3px 6px 3px;
+	TEXT-DECORATION: none;
+	background-position: center :                       4px;
+	background-color: #AFC0E0;
+}
+
+.LoginBox {
+	border: 1px solid #393b43;
+	padding: 6px 3px 6px 3px;
+	TEXT-DECORATION: none;
+	background-position: center :                       4px;
+	background-color: #FFFFFF;
+}
+
+.UploadTableBox {
+	BORDER-RIGHT: #BBBBBB 1px solid;
+	BORDER-TOP: #BBBBBB 1px solid;
+	BORDER-LEFT: #BBBBBB 1px solid;
+	BORDER-BOTTOM: #BBBBBB 1px solid;
+	TEXT-DECORATION: none;
+	background-image: url(../img/Icon-Folder02.png) no-repeat;
+	background-position: center :                   4px;
+	background-color: #E6E6FA;
+}
+
+.newusrtitle {
+	FONT-FAMILY: Calibri, Verdana, Helvetica, sans-serif;
+	COLOR: black;
+	FONT-SIZE: 16px;
+	FONT-WEIGHT: bold;
+	BORDER-BOTTOM: #cccccc 1px solid;
+}
+
+.note {
+	FONT-FAMILY: Calibri, Verdana, Helvetica, sans-serif;
+	COLOR: black;
+	FONT-SIZE: 10px;
+	FONT-WEIGHT: normal
+}
+
+.footer {
+	background: #fff;
+	border: none;
+	margin-top: 20px;
+	border-top: 1px solid #999999;
+	width: 100%;
+}
+
+.footer td {
+	color: #999999;
+}
+
+.footer a:link {
+	color: #7db223;
+}
+
+.OrangeHeading {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 16px;
+	COLOR: #202020;
+	FONT-FAMILY: Calibri, Helvetica, sans-serif;
+	height: 30px;
+	PADDING-LEFT: 3px;
+	PADDING-BOTTOM: 4px;
+	PADDING-TOP: 4px;
+}
