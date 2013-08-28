@@ -68,21 +68,26 @@
 					<td><select name="envList">
 						<option value=""
 							style="background-color: #CDC9C8; font-family: Calibri, Helvetica, sans-serif">Select</option>
+						<!-- 
 						<option value="mtdevContextSource"
 							style="background-color: #CDC9C8; font-family: Calibri, Helvetica, sans-serif">MT
 						DEV</option>
+						
 						<option value="gskdevContextSource"
 							style="background-color: #CDC9C8; font-family: Calibri, Helvetica, sans-serif">GSK
 						DEV</option>
+						
+						<option value="mtstgContextSource"
+							style="background-color: #CDC9C8; font-family: Calibri, Helvetica, sans-serif">MT
+						STG</option>
+						 -->
 						<option value="mtprdContextSource"
 							style="background-color: #CDC9C8; font-family: Calibri, Helvetica, sans-serif">MT
 						PROD</option>
 						<option value="gskprdContextSource"
 							style="background-color: #CDC9C8; font-family: Calibri, Helvetica, sans-serif">GSK
 						PROD</option>
-						<option value="mtstgContextSource"
-							style="background-color: #CDC9C8; font-family: Calibri, Helvetica, sans-serif">MT
-						STG</option>
+
 					</select></td>
 
 				</tr>
