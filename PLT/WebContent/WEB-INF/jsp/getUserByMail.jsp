@@ -9,22 +9,16 @@
 <script language=JavaScript type=text/javascript>
 function enableUser()
 {
-alert("Inside enableUser Function");
 var env = document.getElementById('env');
 var email = document.getElementById('emailid');
-alert("Env - "+env.value);
-alert("Email - "+email.value);
     document.form.action = "enableUser.do";
     return true;    
 }
 
 function unlockUser()
 {
-    alert("Inside unlockUser Function");
 var env = document.getElementById('env');
 var email = document.getElementById('emailid');
-alert("Env - "+env.value);
-alert("Email - "+email.value);
     document.form.action = "unLockUser.do";
     return true;    
 }
